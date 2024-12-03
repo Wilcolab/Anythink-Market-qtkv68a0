@@ -24,7 +24,7 @@ func greet(c *gin.Context) {
 	c.IndentedJSON(http.StatusOK, "Welcome, Go navigator, to the Anythink cosmic catalog.")
 }
 
-func items() {
+func items(c *gin.Context) {
 	list := []Items{
 		{ID: 1, Name: "Galactic Goggles"},
 		{ID: 2, Name: "Meteor Muffins"},
@@ -33,10 +33,7 @@ func items() {
 		{ID: 5, Name: "Quantum Quill"},
 	}
 
-	jsonData, err := json.MarshalIndent(people, "", "    ")
-	if err != nil {
-		log.Fatal(err)
-	}
+	c.IndentedJSON(http.StatusOK, list)
 
 }
 
