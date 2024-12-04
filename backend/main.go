@@ -3,7 +3,6 @@ package main
 import (
 	"net/http"
 	"github.com/gin-gonic/gin"
-	"encoding/json"
 )
 
 type Items struct {
@@ -16,6 +15,7 @@ func main() {
 	router.GET("/", greet)
 	router.GET("/items", items)
 	router.HEAD("/healthcheck", healthcheck)
+	router.GET("/healthcheck", healthcheck)
 
 	router.Run()
 }
